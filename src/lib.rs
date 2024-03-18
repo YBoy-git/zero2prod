@@ -16,11 +16,11 @@ async fn health_check() -> impl Responder {
 
 pub fn run(listener: TcpListener) -> std::io::Result<Server> {
     Ok(HttpServer::new(|| {
-            App::new()
-                .route("/", web::get().to(index))
-                .route("/health_check", web::get().to(health_check))
-                .route("/{name}", web::get().to(greet))
-        })
-        .listen(listener)?
-        .run())
+        App::new()
+            .route("/", web::get().to(index))
+            .route("/health_check", web::get().to(health_check))
+            .route("/{name}", web::get().to(greet))
+    })
+    .listen(listener)?
+    .run())
 }

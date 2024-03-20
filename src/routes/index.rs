@@ -1,5 +1,5 @@
 use actix_web::{HttpResponse, Responder};
 
-pub async fn health_check() -> impl Responder {
-    HttpResponse::Ok()
+pub async fn index() -> impl Responder {
+    HttpResponse::Ok().body(include_str!("../../index.html"))
 }
